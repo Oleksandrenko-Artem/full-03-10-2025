@@ -1,0 +1,1 @@
+GET http://localhost:3000/athletes/68d130c4ec4647dec59b1ca3 HTTP/1.1

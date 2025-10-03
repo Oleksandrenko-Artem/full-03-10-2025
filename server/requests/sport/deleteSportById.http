@@ -1,0 +1,1 @@
+DELETE http://localhost:3000/sports/68c99472ebca55e61a4f5c89 HTTP/1.1

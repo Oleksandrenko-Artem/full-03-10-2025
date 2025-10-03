@@ -1,0 +1,1 @@
+DELETE http://localhost:3000/athletes/68d07844cc8625dd0f644974 HTTP/1.1

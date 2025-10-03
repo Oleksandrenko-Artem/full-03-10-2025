@@ -1,0 +1,42 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 400px;
+    gap: 15px;
+    label {
+        font-size: 1.2em;
+    }
+    label>input[type="text"] {
+        display: flex;
+        flex-direction: column;
+        width: 392px;
+        height: 24px;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+    label>input[type="file"] {
+        display: flex;
+        flex-direction: column;
+    }
+    label>input[type="checkbox"] {
+        height: 20px;
+        width: 20px;
+    }
+    button {
+        color: white;
+        font-size: 1.05em;
+        background: linear-gradient(180deg, rgba(10, 0, 36, 1) 0%, rgba(0, 0, 191, 1) 46%, rgba(0, 127, 212, 1) 85%, rgba(71, 224, 255, 1) 100%);
+        border: 1px solid black;
+        border-radius: 10px;
+        height: 30px;
+        &:hover {
+            background: linear-gradient(180deg, rgb(29, 0, 100) 0%, rgb(20, 20, 255) 46%, rgb(16, 159, 255) 85%, rgba(71, 224, 255, 1) 100%);
+        }
+    }
+    .error {
+        color: red;
+        text-transform: capitalize;
+        font-size: 1.05em;
+    }
+}
