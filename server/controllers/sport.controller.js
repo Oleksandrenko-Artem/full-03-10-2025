@@ -28,7 +28,7 @@ module.exports.getAllSports = async (req, res, next) => {
 module.exports.getSportById = async (req, res, next) => {
     try {
         const { idSport } = req.params
-        const sport = await Sport.findById(idSport).populate({path: 'athletes'});
+        const sport = await Sport.findById(idSport).populate('athletes');
         if (!sport) {
             return next(createError(404, 'Sport not found'));
         }
@@ -41,7 +41,7 @@ module.exports.getSportById = async (req, res, next) => {
 module.exports.patchSportById = async (req, res, next) => {
     try {
         const { name, isOlimpic } = req.body;
-        const sport = await Sport.findById(req.params.idSport);
+        const sport = await Sport.findById(req.params.idSport).populate('athletes');
         if (!sport) {
             return next(createError(404, 'Sport not found'));
         }

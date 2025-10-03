@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSportByIdAsync } from '../store/sportsSlice';
-import CONSTANTS from '../constants';
-import FormUpdateSport from './forms/FormUpdateSport';
+import { fetchSportByIdAsync } from '../../store/sportsSlice';
+import CONSTANTS from '../../constants';
+import FormUpdateSport from '../forms/FormUpdateSport';
 
 const Sport = () => {
     const { sportId } = useParams();
