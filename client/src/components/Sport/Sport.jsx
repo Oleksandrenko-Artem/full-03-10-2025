@@ -23,13 +23,13 @@ const Sport = () => {
     };
     if (isLoading) {
         return <p>Loading...</p>
-    }
+    };
     if (error) {
         return <p>{error}</p>
-    }
+    };
     if (!selectedSport) {
         return <p>Sport isn't available</p>
-    }
+    };
     return (
         <section>
             <h2>{selectedSport?.name}</h2>
@@ -43,6 +43,6 @@ const Sport = () => {
             </div>
         </section>
     );
-}
+};
 
 export default Sport;

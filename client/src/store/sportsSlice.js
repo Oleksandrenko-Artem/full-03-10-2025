@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchAllSports, fetchSportById, fetchCreateSport, fetchDeleteSportById, fetchUpdateSportById } from '../api';
+import { pendingCase, rejectedCase } from "./functions";
 
 export const fetchUpdateSportByIdAsync = createAsyncThunk('sports/fetchUpdateSportById', async ({id, formData}, thunkAPI) => {
     try {
@@ -45,16 +46,6 @@ export const fetchAllSportsAsync = createAsyncThunk('sports/fetchAllSports', asy
         return thunkAPI.rejectWithValue(error?.message);
     }
 });
-
-const pendingCase = (state) => {
-    state.error = null;
-    state.isLoading = true;
-};
-
-const rejectedCase = (state, action) => {
-    state.error = action.payload;
-    state.isLoading = false;
-};
 
 const sportsSlice = createSlice({
     name: 'sports',
