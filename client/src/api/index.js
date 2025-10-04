@@ -21,3 +21,8 @@ export const fetchCreateAthlete = (formData) =>
     apiClient.post('/athletes', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
     });
+export const fetchUpdateAthleteById = ({ id, formData }) =>
+    apiClient.patch(`/athletes/${id}`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+    });
+export const fetchDeleteAthleteById = (id) => apiClient.delete(`/athletes/${id}`);

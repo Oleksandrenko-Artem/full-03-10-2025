@@ -76,7 +76,11 @@ module.exports.updateAthleteById = async (req, res, next) => {
         athlete.country = country || athlete.country;
         athlete.birthYear = birthYear || athlete.birthYear;
         athlete.sportId = sportId || athlete.sportId;
-        const updatedAthlete = await athlete.save();
+        await athlete.save();
+        const updatedAthlete = await Athlete.findById(athlete._id).populate({
+            path: 'sportId',
+            select: 'name'
+        });
         res.status(200).send({ data: updatedAthlete });
     } catch (error) {
         next(createError(400, error.message));

@@ -37,6 +37,7 @@ const FormCreateAthlete = () => {
                         <select name="country" onChange={(event) => {
                             setFieldValue('country', event.currentTarget.selectedOptions[0].value);
                         }}>
+                            <option value=""></option>
                             {CONSTANTS.ALLOWED_COUNTRIES.map(showCountry)}
                         </select>
                         <ErrorMessage name="country" component='div' className={styles.error} />
@@ -51,6 +52,7 @@ const FormCreateAthlete = () => {
                         <select name="sportId" onChange={(event) => {
                             setFieldValue('sportId', event.currentTarget.selectedOptions[0].value);
                         }}>
+                            <option value=""></option>
                             {sports?.map(showSport)}
                         </select>
                         <ErrorMessage name="sportId" component='div' className={styles.error}/>

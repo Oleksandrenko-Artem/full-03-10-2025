@@ -14,13 +14,13 @@ const SportItem = ({ sport }) => {
     const handleDelete = (event) => {
         event.stopPropagation();
         dispatch(fetchDeleteSportByIdAsync(sport._id));
-    }
+    };
     return (
         <li onClick={navigateToSport}>
             {sport.name}
-            <Icon onClick={handleDelete} path={mdiDeleteOutline} size={0.7}/>
+            <Icon onClick={handleDelete} path={mdiDeleteOutline} size={0.7} />
         </li>
     );
-}
+};
 
 export default SportItem;

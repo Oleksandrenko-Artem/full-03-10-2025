@@ -34,6 +34,7 @@ const FormUpdateSport = ({sport, handleForm}) => {
                         setFieldValue('image', event.currentTarget.files[0]);
                     };
                     return <Form className={styles.form}>
+                        <h2>Update sport</h2>
                         <label>
                             <span>Name of sport</span>
                             <Field name="name" type="text"/>

@@ -1,0 +1,18 @@
+@use './../../common/styles/colors' as *;
+@use './../../common/styles/widths' as *;
+
+.img {
+    min-width: 200px;
+    max-width: 400px;
+}
+.btn {
+    color: $colorButtonText;
+    font-size: $buttonFont;
+    background: $buttonBackground;
+    border: $buttonBorderWidth solid $buttonBorderColor;
+    border-radius: $inputBorderRadius;
+    height: $inputHeightSecond;
+    &:hover {
+        background: $buttonBackgroundHover;
+    }
+}

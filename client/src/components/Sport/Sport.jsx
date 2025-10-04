@@ -5,16 +5,18 @@ import { fetchSportByIdAsync } from '../../store/sportsSlice';
 import CONSTANTS from '../../constants';
 import FormUpdateSport from '../forms/FormUpdateSport';
 import AthletesList from '../AthletesList/AthletesList';
+import styles from './Sport.module.scss';
 
 const Sport = () => {
     const { sportId } = useParams();
     const dispatch = useDispatch();
     const { selectedSport, isLoading, error } = useSelector((state) => state.sports);
+    const { athletes } = useSelector((state) => state.athletes);
     const [isShowForm, setIsShowForm] = useState(false);
     const [isShowList, setIsShowList] = useState(true);
     useEffect(() => {
         dispatch(fetchSportByIdAsync(sportId));
-    }, [dispatch, sportId]);
+    }, [dispatch, sportId, athletes]);
     const handleForm = () => {
         setIsShowForm(!isShowForm);
     };
@@ -36,9 +38,9 @@ const Sport = () => {
             <p>{selectedSport?.isOlimpic ? 'Olimpic' : 'Not olimpic'}</p>
             <img src={`${CONSTANTS.API_BASE_URL}${selectedSport?.image}`} alt={selectedSport?.name} />
             <div>
-                <button onClick={handleForm}>{isShowForm ? 'Hide' : 'Show'} form update sport</button>
+                <button onClick={handleForm} className={styles.btn}>{isShowForm ? 'Hide' : 'Show'} form update sport</button>
                 {isShowForm && <FormUpdateSport sport={selectedSport} handleForm={handleForm} />}
-                <button onClick={handleList}>{isShowList ? 'Hide' : 'Show'} list of athletes</button>
+                <button onClick={handleList} className={styles.btn}>{isShowList ? 'Hide' : 'Show'} list of athletes</button>
                 {isShowList && <AthletesList athletes={selectedSport.athletes} />}
             </div>
         </section>
