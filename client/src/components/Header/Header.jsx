@@ -6,6 +6,7 @@ const Header = () => {
     return (
         <header>
             <Link to="/">Main Page</Link>
+            <Link to="/create-athlete">Create Athlete</Link>
             <Link to="/create-sport">Create Sport</Link>
         </header>
     );

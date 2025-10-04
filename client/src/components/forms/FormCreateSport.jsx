@@ -13,32 +13,33 @@ const FormCreateSport = () => {
         formikBag.resetForm();
     }
     return (
-        <Formik initialValues={{name: '', isOlimpic: false, image: ''}} onSubmit={onSubmit} validationSchema={createValidationSchema}>
-            {({setFieldValue}) => (
+        <Formik initialValues={{ name: '', isOlimpic: false, image: '' }} onSubmit={onSubmit} validationSchema={createValidationSchema}>
+            {({ setFieldValue }) => (
                 <Form className={styles.form}>
-                <p className={styles.error}>{error && 'Sport with this name already exists'}</p>
-                <label>
-                    <span>Name of sport</span>
-                    <Field name="name" type="text"/>
-                    <ErrorMessage name="name" component='div' className={styles.error}/>
-                </label>
-                <label>
-                    <span>Choose olimpic</span>
-                    <Field name="isOlimpic" type="checkbox"/>
-                    <ErrorMessage name="isOlimpic" component='div' className={styles.error}/>
-                </label>
-                <label>
-                    <span>Add picture to sport</span>
+                    <h2>Create new sport</h2>
+                    <p className={styles.error}>{error && 'Sport with this name already exists'}</p>
+                    <label>
+                        <span>Name of sport</span>
+                        <Field name="name" type="text" />
+                        <ErrorMessage name="name" component='div' className={styles.error} />
+                    </label>
+                    <label>
+                        <span>Choose olimpic</span>
+                        <Field name="isOlimpic" type="checkbox" />
+                        <ErrorMessage name="isOlimpic" component='div' className={styles.error} />
+                    </label>
+                    <label>
+                        <span>Add picture to sport</span>
                         <input name="image" type="file" onChange={(event) => {
                             setFieldValue('image', event.currentTarget.files[0]);
                         }} />
-                    <ErrorMessage name="image" component='div' className={styles.error}/>
-                </label>
-                <button type='submit'>Create new sport</button>
+                        <ErrorMessage name="image" component='div' className={styles.error} />
+                    </label>
+                    <button type='submit'>Create new sport</button>
                 </Form>
             )}
         </Formik>
     );
-}
+};
 
 export default FormCreateSport;

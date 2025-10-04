@@ -4,10 +4,21 @@
     margin: auto;
     width: 400px;
     gap: 15px;
+    h2{
+        display: flex;
+        justify-content: center;
+    }
     label {
         font-size: 1.2em;
+        select {
+            display: flex;
+            width: 400px;
+            height: 30px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
     }
-    label>input[type="text"] {
+    label>input[type="text"], label>input[type="number"] {
         display: flex;
         flex-direction: column;
         width: 392px;

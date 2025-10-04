@@ -18,6 +18,7 @@ const athleteSchema = new mongoose.Schema({
         type: Number,
         min: 1900,
         max: new Date().getFullYear() - 15,
+        required: true,
     },
     sportId: {
         type: mongoose.Schema.Types.ObjectId,

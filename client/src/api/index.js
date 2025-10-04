@@ -17,3 +17,7 @@ export const fetchUpdateSportById = ({id, formData}) =>
         headers: { 'Content-Type': 'multipart/form-data' }
     });
 export const fetchAthleteById = (id) => apiClient.get(`/athletes/${id}`);
+export const fetchCreateAthlete = (formData) =>
+    apiClient.post('/athletes', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+    });

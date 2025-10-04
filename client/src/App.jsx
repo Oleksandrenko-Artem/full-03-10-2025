@@ -5,6 +5,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import Header from './components/Header/Header';
 import CreateSportPage from './pages/CreateSportPage';
 import AthletePage from './pages/AthletePage';
+import CreateAthletePage from './pages/CreateAthletePage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/create-sport' element={<CreateSportPage />} />
 
         <Route path='/athletes/:athleteId' element={<AthletePage />} />
+        <Route path='/create-athlete' element={<CreateAthletePage />} />
 
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
