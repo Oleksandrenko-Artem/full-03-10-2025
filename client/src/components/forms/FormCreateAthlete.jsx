@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { fetchAllSportsAsync } from '../../store/sportsSlice';
@@ -8,6 +9,7 @@ import CONSTANTS from '../../constants';
 import styles from './form.module.scss'
 
 const FormCreateAthlete = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const { sports } = useSelector((state) => state.sports);
     useEffect(() => {
@@ -16,6 +18,7 @@ const FormCreateAthlete = () => {
     const onSubmit = (values, formikBag) => {
         dispatch(fetchCreateAthleteAsync(values));
         formikBag.resetForm();
+        navigate(`/sports/${values.sportId}`);
     };
     const showCountry = (country) => (<option key={country} value={country}>{country}</option>);
     const showSport = (sport) => (<option key={sport._id} value={sport._id}>{sport.name}</option>);
