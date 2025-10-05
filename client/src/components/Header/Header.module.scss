@@ -1,16 +1,21 @@
-@use './../../common/styles/widths' as *;
+@use '/src/common/styles/colors' as *;
+@use '/src/common/styles/widths' as *;
+@use '/src/common/styles/mixins' as *;
+@use '/src/common/styles/breakpoints' as *;
+@use '/src/common/styles/templates' as *;
 
 header {
-    display: flex;
+    @include flex(column);
+    @extend %wrapper;
     justify-content: space-between;
-    width: $wrapperWidth;
-    min-width: $minWrapperWidth;
-    max-width: $maxWrapperWidth;
-    margin: auto;
     a {
+        display: inline-block;
         padding: $paddingHeader;
         &:hover {
-            background-color: #eee;
+            background-color: $lightGray;
         }
+    }
+    @media screen and (min-width: $m) {
+        @include flex(row);
     }
 }

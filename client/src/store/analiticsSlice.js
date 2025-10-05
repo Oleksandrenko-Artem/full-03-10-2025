@@ -2,6 +2,15 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchAthletesBySport, fetchAthletesByCountry, fetchAvgAgeAthletesBySport, fetchSportsByCountry } from './../api/index';
 import { pendingCase, rejectedCase } from './functions';
 
+export const fetchAvgAgeAthletesBySportAsync = createAsyncThunk('analitics/fetchAvgAgeAthletesBySport', async (_, thunkAPI) => {
+    try {
+        const response = await fetchAvgAgeAthletesBySport();
+        return response.data.data;
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error?.message);
+    }
+});
+
 export const fetchSportsByCountryAsync = createAsyncThunk('analitics/fetchSportsByCountry', async (_, thunkAPI) => {
     try {
         const response = await fetchSportsByCountry();
@@ -35,6 +44,7 @@ const analiticsSlice = createSlice({
         athletesBySport: [],
         athletesByCountry: [],
         sportsByCountry: [],
+        avgAgeAthletesBySport: [],
         isLoading: false,
         error: null,
     },
@@ -43,6 +53,7 @@ const analiticsSlice = createSlice({
         builder.addCase(fetchAthletesBySportAsync.pending, pendingCase);
         builder.addCase(fetchAthletesByCountryAsync.pending, pendingCase);
         builder.addCase(fetchSportsByCountryAsync.pending, pendingCase);
+        builder.addCase(fetchAvgAgeAthletesBySportAsync.pending, pendingCase);
         builder.addCase(fetchAthletesBySportAsync.fulfilled, (state, action) => {
             state.athletesBySport = action.payload;
             state.isLoading = false;
@@ -58,9 +69,15 @@ const analiticsSlice = createSlice({
             state.isLoading = false;
             state.error = null;
         });
+        builder.addCase(fetchAvgAgeAthletesBySportAsync.fulfilled, (state, action) => {
+            state.avgAgeAthletesBySport = action.payload;
+            state.isLoading = false;
+            state.error = null;
+        });
         builder.addCase(fetchAthletesBySportAsync.rejected, rejectedCase);
         builder.addCase(fetchAthletesByCountryAsync.rejected, rejectedCase);
         builder.addCase(fetchSportsByCountryAsync.rejected, rejectedCase);
+        builder.addCase(fetchAvgAgeAthletesBySportAsync.rejected, rejectedCase);
     },
 });
 

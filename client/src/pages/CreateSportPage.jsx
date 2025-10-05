@@ -1,9 +1,10 @@
 import React from 'react';
 import FormCreateSport from '../components/forms/FormCreateSport';
+import styles from './pages.module.scss';
 
 const CreateSportPage = () => {
     return (
-        <div>
+        <div className={styles.wrapper}>
             <FormCreateSport />
         </div>
     );

@@ -12,10 +12,11 @@ const FormCreateSport = () => {
         dispatch(fetchCreateSportAsync(values));
         formikBag.resetForm();
     }
+    const classForm = styles['margin-auto'] + ' ' + styles.form;
     return (
         <Formik initialValues={{ name: '', isOlimpic: false, image: '' }} onSubmit={onSubmit} validationSchema={createValidationSchema}>
             {({ setFieldValue }) => (
-                <Form className={styles.form}>
+                <Form className={classForm}>
                     <h2>Create new sport</h2>
                     <p className={styles.error}>{error && 'Sport with this name already exists'}</p>
                     <label>

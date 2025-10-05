@@ -1,6 +1,8 @@
+@use '/src/common/styles/colors' as *;
+
 .analitic {
     text-align: center;
-    background-color: #eee;
+    background-color: $lightGray;
     div{
         padding: 0 0 10px 0;
     }

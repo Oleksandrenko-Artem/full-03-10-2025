@@ -11,7 +11,7 @@ const AthletesByCountry = () => {
     useEffect(() => {
         dispatch(fetchAthletesByCountryAsync());
     }, [dispatch]);
-    const showColorCell = (country, i) => <Cell key={country.country} fill={CONSTANTS.COLORS[i]} />;
+    const showColorCell = (country, i) => (<Cell key={country.country} fill={CONSTANTS.COLORS[i]} />);
     return (
         <section className={styles.analitic}>
             <h2>Amount athletes in each country</h2>

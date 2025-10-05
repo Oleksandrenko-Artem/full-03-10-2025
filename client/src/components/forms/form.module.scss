@@ -1,10 +1,9 @@
-@use './../../common/styles/colors' as *;
-@use './../../common/styles/widths' as *;
-@use './../../common/styles/mixins' as *;
+@use '/src/common/styles/colors' as *;
+@use '/src/common/styles/widths' as *;
+@use '/src/common/styles/mixins' as *;
 
 .form {
     @include flex(column);
-    margin: auto;
     width: $formWidth;
     gap: $formGap;
     h2{
@@ -36,12 +35,8 @@
         width: $checkboxWidth;
     }
     button {
-        color: $colorButtonText;
-        font-size: $buttonFont;
-        background: $buttonBackground;
+        @include btn($buttonBackground, $colorButtonText,$buttonFont, $inputBorderRadius, $inputHeightSecond);
         border: $buttonBorderWidth solid $buttonBorderColor;
-        border-radius: $inputBorderRadius;
-        height: $inputHeightSecond;
         &:hover {
             background: $buttonBackgroundHover;
         }
@@ -51,4 +46,7 @@
         text-transform: capitalize;
         font-size: $buttonFont;
     }
+}
+.margin-auto{
+    margin: auto;
 }

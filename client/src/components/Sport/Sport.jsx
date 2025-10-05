@@ -23,6 +23,8 @@ const Sport = () => {
     const handleList = () => {
         setIsShowList(!isShowList);
     };
+    const classBtnFormUpdate = isShowForm ? 'btn-hide' : 'btn-show'
+    const classBtnAthleteList = isShowList ? 'btn-show' : 'btn-hide'
     if (isLoading) {
         return <p>Loading...</p>
     };
@@ -34,17 +36,13 @@ const Sport = () => {
     };
     return (
         <section className={styles.wrapper}>
-            <div className={styles.info}>
-                <img src={`${CONSTANTS.API_BASE_URL}${selectedSport?.image}`} alt={selectedSport?.name} />
-                <div>
-                    <h2>{selectedSport?.name}</h2>
-                    <p>{selectedSport?.isOlimpic ? 'Olimpic' : 'Not olimpic'}</p>
-                </div>
-            </div>
+            <h2>{selectedSport?.name}</h2>
+            <p>{selectedSport?.isOlimpic ? 'Olimpic' : 'Not olimpic'}</p>
+            <img src={`${CONSTANTS.API_BASE_URL}${selectedSport?.image}`} alt={selectedSport?.name} />
             <div>
-                <button onClick={handleForm} className={styles.btn}>{isShowForm ? 'Hide' : 'Show'} form update sport</button>
+                <button onClick={handleList} className={styles[classBtnAthleteList]}>{isShowList ? 'Hide' : 'Show'} list of athletes</button>
+                <button onClick={handleForm} className={styles[classBtnFormUpdate]}>{isShowForm ? 'Hide' : 'Show'} form update sport</button>
                 {isShowForm && <FormUpdateSport sport={selectedSport} handleForm={handleForm} />}
-                <button onClick={handleList} className={styles.btn}>{isShowList ? 'Hide' : 'Show'} list of athletes</button>
                 {isShowList && <AthletesList athletes={selectedSport.athletes} />}
             </div>
         </section>

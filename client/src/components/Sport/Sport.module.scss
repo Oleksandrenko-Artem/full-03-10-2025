@@ -1,6 +1,7 @@
-@use './../../common/styles/colors' as *;
-@use './../../common/styles/widths' as *;
-@use './../../common/styles/mixins' as *;
+@use '/src/common/styles/colors' as *;
+@use '/src/common/styles/widths' as *;
+@use '/src/common/styles/mixins' as *;
+@use '/src/common/styles/templates' as*;
 
 .wrapper {
     @include flex(column);
@@ -16,15 +17,17 @@
     min-width: 400px;
     max-width: 500px;
 }
-.btn {
-    color: $colorButtonText;
-    font-size: $buttonFont;
-    background: $buttonBackground;
-    border: $buttonBorderWidth solid $buttonBorderColor;
-    border-radius: $inputBorderRadius;
-    height: $inputHeightSecond;
-    margin-right: $paddingHeader;
+.btn-show {
+    @include btn($buttonBackground, $colorButtonText, $buttonFont, $inputBorderRadius, $inputHeightSecond);
+    @extend %btn-style;
     &:hover {
         background: $buttonBackgroundHover;
+    }
+}
+.btn-hide {
+    @include btn($buttonBackgroundSecond, $colorButtonText, $buttonFont, $inputBorderRadius, $inputHeightSecond);
+    @extend %btn-style;
+    &:hover {
+        background: $buttonBackgroundHoverSecond;
     }
 }

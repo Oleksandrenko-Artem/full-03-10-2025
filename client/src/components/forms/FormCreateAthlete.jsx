@@ -22,10 +22,11 @@ const FormCreateAthlete = () => {
     };
     const showCountry = (country) => (<option key={country} value={country}>{country}</option>);
     const showSport = (sport) => (<option key={sport._id} value={sport._id}>{sport.name}</option>);
+    const classForm = styles['margin-auto'] + ' ' + styles.form;
     return (
         <Formik initialValues={{name: '', country: '', birthYear: 2000, sportId: '', avatar: ''}} validationSchema={createValidationSchema} onSubmit={onSubmit}>
             {({setFieldValue}) => {
-                return <Form className={styles.form}>
+                return <Form className={classForm}>
                     <h2>Create new athlete</h2>
                     <label>
                         <span>Name of athlete</span>

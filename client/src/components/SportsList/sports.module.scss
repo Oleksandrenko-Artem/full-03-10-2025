@@ -1,0 +1,6 @@
+@use '/src/common/styles/templates' as *;
+
+.sport-item {
+    @extend %item;
+    @extend  %flex-between;
+}

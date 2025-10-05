@@ -1,0 +1,26 @@
+@use '/src/common/styles/colors' as *;
+@use '/src/common/styles/widths' as *;
+
+%item {
+    cursor: pointer;
+    padding: 5px;
+    margin-bottom: 5px;
+    &:hover {
+        background-color: $lightGray;
+    }
+}
+%flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+%wrapper {
+    width: $wrapperWidth;
+    min-width: $minWrapperWidth;
+    max-width: $maxWrapperWidth;
+    margin: auto;
+}
+%btn-style {
+    border: $buttonBorderWidth solid $buttonBorderColor;
+    margin: 10px $paddingHeader 0 0;
+}

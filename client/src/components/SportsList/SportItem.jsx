@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Icon } from '@mdi/react';
 import { mdiDeleteOutline } from '@mdi/js';
 import { fetchDeleteSportByIdAsync } from '../../store/sportsSlice';
+import styles from './sports.module.scss';
 
 const SportItem = ({ sport }) => {
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ const SportItem = ({ sport }) => {
         dispatch(fetchDeleteSportByIdAsync(sport._id));
     };
     return (
-        <li onClick={navigateToSport}>
+        <li className={styles['sport-item']} onClick={navigateToSport}>
             {sport.name}
             <Icon onClick={handleDelete} path={mdiDeleteOutline} size={0.7} />
         </li>

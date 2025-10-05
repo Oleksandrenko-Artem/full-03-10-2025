@@ -1,8 +1,8 @@
-@use './../common/styles/widths' as *;
+@use '/src/common/styles/templates' as *;
 
+h1 {
+    text-align: center
+}
 .wrapper {
-    width: $wrapperWidth;
-    min-width: $minWrapperWidth;
-    max-width: $maxWrapperWidth;
-    margin: auto;
+    @extend %wrapper;
 }

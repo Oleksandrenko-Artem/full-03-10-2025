@@ -2,3 +2,10 @@
     display: flex;
     flex-direction: $fd;
 }
+@mixin btn($buttonBackground, $colorButtonText, $buttonFont, $inputBorderRadius, $inputHeightSecond){
+    background: $buttonBackground;
+    color: $colorButtonText;
+    font-size: $buttonFont;
+    border-radius: $inputBorderRadius;
+    height: $inputHeightSecond;
+}
