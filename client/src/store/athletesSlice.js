@@ -9,7 +9,8 @@ export const fetchDeleteAthleteByIdAsync = createAsyncThunk('athletes/fetchDelet
     } catch (error) {
         return thunkAPI.rejectWithValue(error?.message);
     }
-})
+});
+
 export const fetchUpdateAthleteByIdAsync = createAsyncThunk('athletes/fetchUpdateAthleteById', async ({ id, formData }, thunkAPI) => {
     try {
         const response = await fetchUpdateAthleteById({ id, formData });
@@ -41,7 +42,7 @@ const fulfilledCase = (state, action) => {
     state.selectedAthlete = action.payload;
     state.isLoading = false;
     state.error = null;
-}
+};
 
 const athletesSlice = createSlice({
     name: 'athletes',

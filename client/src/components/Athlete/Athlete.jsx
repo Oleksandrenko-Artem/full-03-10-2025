@@ -27,12 +27,16 @@ const Athlete = () => {
         return <p>Athlete is'nt available</p>
     };
     return (
-        <article>
-            <h2>{selectedAthlete?.name}</h2>
-            <img src={`${CONSTANTS.API_BASE_URL}${selectedAthlete?.avatar}`} alt={`${selectedAthlete?.name}`} className={styles.img} />
-            <p>Country: {selectedAthlete?.country}</p>
-            <p>Birth year: {selectedAthlete?.birthYear}</p>
-            <p>Sport: <Link to={`/sports/${selectedAthlete?.sportId._id}`}>{selectedAthlete?.sportId.name}</Link></p>
+        <article className={styles.wrapper}>
+            <div className={styles.info}>
+                <img src={`${CONSTANTS.API_BASE_URL}${selectedAthlete?.avatar}`} alt={`${selectedAthlete?.name}`} className={styles.img} />
+                <div>
+                    <h2>{selectedAthlete?.name}</h2>
+                    <p><b>Country: </b>{selectedAthlete?.country}</p>
+                    <p><b>Birth year: </b>{selectedAthlete?.birthYear}</p>
+                    <p><b>Sport: </b><Link to={`/sports/${selectedAthlete?.sportId._id}`}>{selectedAthlete?.sportId.name}</Link></p>
+                </div>
+            </div>
             <div>
                 <button onClick={handleForm} className={styles.btn}>{isShowForm ? 'Hide' : 'Show'} form update athlete</button>
                 {isShowForm && <FormUpdateAthlete athlete={selectedAthlete} handleForm={handleForm} />}

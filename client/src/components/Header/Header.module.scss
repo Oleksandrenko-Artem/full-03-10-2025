@@ -1,4 +1,16 @@
+@use './../../common/styles/widths' as *;
+
 header {
     display: flex;
     justify-content: space-between;
+    width: $wrapperWidth;
+    min-width: $minWrapperWidth;
+    max-width: $maxWrapperWidth;
+    margin: auto;
+    a {
+        padding: $paddingHeader;
+        &:hover {
+            background-color: #eee;
+        }
+    }
 }

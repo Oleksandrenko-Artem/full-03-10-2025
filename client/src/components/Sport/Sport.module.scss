@@ -1,8 +1,19 @@
 @use './../../common/styles/colors' as *;
 @use './../../common/styles/widths' as *;
+@use './../../common/styles/mixins' as *;
 
+.wrapper {
+    @include flex(column);
+    .info {
+        display: flex;
+        flex-direction: row;
+        div {
+            padding: 0 0 0 30px;
+        }
+    }
+}
 .img {
-    min-width: 300px;
+    min-width: 400px;
     max-width: 500px;
 }
 .btn {
@@ -12,7 +23,7 @@
     border: $buttonBorderWidth solid $buttonBorderColor;
     border-radius: $inputBorderRadius;
     height: $inputHeightSecond;
-    margin-right: 20px;
+    margin-right: $paddingHeader;
     &:hover {
         background: $buttonBackgroundHover;
     }

@@ -1,0 +1,8 @@
+@use './../common/styles/widths' as *;
+
+.wrapper {
+    width: $wrapperWidth;
+    min-width: $minWrapperWidth;
+    max-width: $maxWrapperWidth;
+    margin: auto;
+}

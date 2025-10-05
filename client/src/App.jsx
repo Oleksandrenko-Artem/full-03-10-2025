@@ -6,6 +6,8 @@ import Header from './components/Header/Header';
 import CreateSportPage from './pages/CreateSportPage';
 import AthletePage from './pages/AthletePage';
 import CreateAthletePage from './pages/CreateAthletePage';
+import AnaliticsPage from './pages/AnaliticsPage';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -20,9 +22,11 @@ function App() {
         <Route path='/athletes/:athleteId' element={<AthletePage />} />
         <Route path='/create-athlete' element={<CreateAthletePage />} />
 
+        <Route path='/analitics' element={<AnaliticsPage />} />
+
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
-      <footer>footer</footer>
+      <Footer />
     </BrowserRouter>
   );
 }

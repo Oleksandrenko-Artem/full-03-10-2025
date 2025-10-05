@@ -33,10 +33,14 @@ const Sport = () => {
         return <p>Sport isn't available</p>
     };
     return (
-        <section>
-            <h2>{selectedSport?.name}</h2>
-            <p>{selectedSport?.isOlimpic ? 'Olimpic' : 'Not olimpic'}</p>
-            <img src={`${CONSTANTS.API_BASE_URL}${selectedSport?.image}`} alt={selectedSport?.name} />
+        <section className={styles.wrapper}>
+            <div className={styles.info}>
+                <img src={`${CONSTANTS.API_BASE_URL}${selectedSport?.image}`} alt={selectedSport?.name} />
+                <div>
+                    <h2>{selectedSport?.name}</h2>
+                    <p>{selectedSport?.isOlimpic ? 'Olimpic' : 'Not olimpic'}</p>
+                </div>
+            </div>
             <div>
                 <button onClick={handleForm} className={styles.btn}>{isShowForm ? 'Hide' : 'Show'} form update sport</button>
                 {isShowForm && <FormUpdateSport sport={selectedSport} handleForm={handleForm} />}
