@@ -1,5 +1,5 @@
 const express = require('express');
-const { countAthletesBySport, countAthletesByCountry, averageAgeAthletesBySport, countSportsByCountry } = require('../controllers/analititcs.controller');
+const { countAthletesBySport, countAthletesByCountry, averageAgeAthletesBySport, countSportsByCountry } = require('../controllers/analitics.controller');
 
 const analiticsRouter = express.Router();
 

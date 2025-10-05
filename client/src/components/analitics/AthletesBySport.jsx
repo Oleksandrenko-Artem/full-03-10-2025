@@ -22,7 +22,8 @@ const AthletesBySport = () => {
             <h2>Amount athletes in each sport</h2>
             {isLoading && <p>Loading...</p>}
             {error && <p>{error}</p>}
-            {athletesBySport.length === 0 ? (<p>Empty data</p>
+            {athletesBySport.length === 0 ? (
+                <p>Empty data</p>
             ) : (
                     <ResponsiveContainer width="100%" height={200}>
                         <BarChart data={athletesBySport}>
