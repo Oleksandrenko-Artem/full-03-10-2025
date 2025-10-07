@@ -2,20 +2,20 @@
 @use '/src/common/styles/widths' as *;
 @use '/src/common/styles/mixins' as *;
 @use '/src/common/styles/templates' as*;
+@use '/src/common/styles/breakpoints' as *;
 
 .wrapper {
-    @include flex(column);
-    .info {
-        display: flex;
-        flex-direction: row;
-        div {
-            padding: 0 0 0 30px;
-        }
+    @include flex(row);
+    justify-content: space-between;
+    div {
+        padding: 0 0 0 30px;
+    }
+    @media screen and (max-width: $m) {
+        @include flex(column);
     }
 }
 .img {
-    min-width: 400px;
-    max-width: 500px;
+    @extend %img-width;
 }
 .btn-show {
     @include btn($buttonBackground, $colorButtonText, $buttonFont, $inputBorderRadius, $inputHeightSecond);

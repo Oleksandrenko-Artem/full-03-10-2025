@@ -36,14 +36,16 @@ const Sport = () => {
     };
     return (
         <section className={styles.wrapper}>
-            <h2>{selectedSport?.name}</h2>
-            <p>{selectedSport?.isOlimpic ? 'Olimpic' : 'Not olimpic'}</p>
-            <img src={`${CONSTANTS.API_BASE_URL}${selectedSport?.image}`} alt={selectedSport?.name} />
             <div>
+                <h2>{selectedSport?.name}</h2>
+                <img src={`${CONSTANTS.API_BASE_URL}${selectedSport?.image}`} alt={selectedSport?.name} className={styles.img} />
+                <p><b>Olimpic:</b> {selectedSport?.isOlimpic ? 'Olimpic' : 'Not olimpic'}</p>
                 <button onClick={handleList} className={styles[classBtnAthleteList]}>{isShowList ? 'Hide' : 'Show'} list of athletes</button>
                 <button onClick={handleForm} className={styles[classBtnFormUpdate]}>{isShowForm ? 'Hide' : 'Show'} form update sport</button>
-                {isShowForm && <FormUpdateSport sport={selectedSport} handleForm={handleForm} />}
                 {isShowList && <AthletesList athletes={selectedSport.athletes} />}
+            </div>
+            <div>
+                {isShowForm && <FormUpdateSport sport={selectedSport} handleForm={handleForm} />}
             </div>
         </section>
     );

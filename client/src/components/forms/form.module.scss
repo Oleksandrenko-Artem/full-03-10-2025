@@ -22,8 +22,8 @@
     }
     label>input[type="text"], label>input[type="number"] {
         @include flex(column);
-        width: $inputWidth;
-        height: $inputHeight;
+        width: 400px;
+        height: 30px;
         border: $buttonBorderWidth solid $buttonBorderColor;
         border-radius: $inputBorderRadius;
     }
