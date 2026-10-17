@@ -3,6 +3,7 @@
     flex-direction: $fd;
 }
 @mixin btn($buttonBackground, $colorButtonText, $buttonFont, $inputBorderRadius, $inputHeightSecond){
+    cursor: pointer;
     background: $buttonBackground;
     color: $colorButtonText;
     font-size: $buttonFont;

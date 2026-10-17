@@ -27,6 +27,16 @@
         border: $buttonBorderWidth solid $buttonBorderColor;
         border-radius: $inputBorderRadius;
     }
+    input[type="file"]::file-selector-button {
+        @include btn($buttonBackground, $colorButtonText,$buttonFont, $inputBorderRadius, $inputHeightSecond);
+        border: $buttonBorderWidth solid $buttonBorderColor;
+    }
+    input[type="file"]::file-selector-button:hover {
+        background: $buttonBackgroundHover;
+    }
+    label>input[type="file"], label>input[type="checkbox"] {
+        cursor: pointer;
+    }
     label>input[type="file"] {
         @include flex(column);
     }
@@ -45,6 +55,10 @@
         color: $errorColor;
         text-transform: capitalize;
         font-size: $buttonFont;
+    }
+    .olimpic {
+        @include flex(row);
+        align-items: center;
     }
 }
 .margin-auto{

@@ -24,7 +24,7 @@ const FormCreateSport = () => {
                         <Field name="name" type="text" />
                         <ErrorMessage name="name" component='div' className={styles.error} />
                     </label>
-                    <label>
+                    <label className={styles.olimpic}>
                         <span>Choose olimpic</span>
                         <Field name="isOlimpic" type="checkbox" />
                         <ErrorMessage name="isOlimpic" component='div' className={styles.error} />

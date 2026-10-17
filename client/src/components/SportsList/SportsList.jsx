@@ -19,7 +19,7 @@ const SportsList = () => {
     return (
         <section>
             <h2>Sports</h2>
-            <ul>{sports.map(showSport)}</ul>
+            {sports.length > 0 ? <ul>{sports.map(showSport)}</ul> : <p>No sports available.</p>}
         </section>
     );
 }
