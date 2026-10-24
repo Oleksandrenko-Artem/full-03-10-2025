@@ -4,11 +4,11 @@ import styles from "./MovingShapes.module.scss";
 const shapesCount = 7;
 const shapes = [];
 const colorsPalette = [
-  "83, 237, 206",
-  "62, 190, 178",
-  "114, 242, 221",
-  "52, 143, 173",
-  "134, 216, 237",
+  "11, 163, 143" /* Глубокий изумрудно-бирюзовый (темный контраст) */,
+  "25, 114, 196" /* Насыщенный синий океан */,
+  "0, 240, 160" /* Яркий неоновый мятный (светящийся контраст) */,
+  "12, 194, 214" /* Сочный глубокий циан */,
+  "200, 255, 240" /* Ультра-светлая ледяная мята */,
 ];
 
 let isInitialized = false;
@@ -18,31 +18,41 @@ class Shape {
     this.init(true);
   }
 
-  init(isFirstTime = false) {
-    this.radius = Math.random() * 60 + 40;
+    init(isFirstTime = false) {
+        if (Math.random() < 0.3) {
+            this.radius = Math.random() * 80 + 160;
+        } else {
+            this.radius = Math.random() * 60 + 50;
+        }
 
-    const currentWidth = window.innerWidth;
-    const currentHeight = window.innerHeight;
+        const currentWidth = window.innerWidth;
+        const currentHeight = window.innerHeight;
 
-    if (isFirstTime) {
-      this.x = Math.random() * currentWidth;
-      this.y = Math.random() * currentHeight;
-    } else {
-      if (Math.random() > 0.5) {
-        this.x = this.vx > 0 ? -this.radius : currentWidth + this.radius;
-        this.y = Math.random() * currentHeight;
-      } else {
-        this.x = Math.random() * currentWidth;
-        this.y = this.vy > 0 ? -this.radius : currentHeight + this.radius;
-      }
+        if (isFirstTime) {
+            this.x = Math.random() * currentWidth;
+            this.y = Math.random() * currentHeight;
+        } else {
+            if (Math.random() > 0.5) {
+                this.x = this.vx > 0 ? -this.radius : currentWidth + this.radius;
+                this.y = Math.random() * currentHeight;
+            } else {
+                this.x = Math.random() * currentWidth;
+                this.y = this.vy > 0 ? -this.radius : currentHeight + this.radius;
+            }
+        }
+
+        const speedFactor = this.radius > 150 ? 0.2 : 0.45;
+        this.vx = (Math.random() - 0.5) * speedFactor;
+        this.vy = (Math.random() - 0.5) * speedFactor;
+
+        this.alpha =
+            this.radius > 150
+                ? Math.random() * 0.08 + 0.12
+                : Math.random() * 0.15 + 0.22;
+
+        this.baseColor =
+            colorsPalette[Math.floor(Math.random() * colorsPalette.length)];
     }
-
-    this.vx = (Math.random() - 0.5) * 0.4;
-    this.vy = (Math.random() - 0.5) * 0.4;
-    this.alpha = Math.random() * 0.13 + 0.12;
-    this.baseColor =
-      colorsPalette[Math.floor(Math.random() * colorsPalette.length)];
-  }
 
   update() {
     this.x += this.vx;

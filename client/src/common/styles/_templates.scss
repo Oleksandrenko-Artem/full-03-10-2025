@@ -5,8 +5,10 @@
     cursor: pointer;
     padding: 5px;
     margin-bottom: 5px;
+    transition: all 0.3s ease;
     &:hover {
         background-color: $lightBlue;
+        transition: all 0.3s ease;
     }
 }
 %flex-between {
