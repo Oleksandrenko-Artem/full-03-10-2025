@@ -8,10 +8,12 @@ import AthletePage from './pages/AthletePage';
 import CreateAthletePage from './pages/CreateAthletePage';
 import AnaliticsPage from './pages/AnaliticsPage';
 import Footer from './components/Footer/Footer';
+import MovingShapes from './components/MovingShapes/MovingShapes';
 
 function App() {
   return (
     <BrowserRouter>
+      <MovingShapes />
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />

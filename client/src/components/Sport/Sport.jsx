@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { Icon } from "@mdi/react";
+import { mdiBasketball } from "@mdi/js";
 import { fetchSportByIdAsync } from '../../store/sportsSlice';
 import CONSTANTS from '../../constants';
 import FormUpdateSport from '../forms/FormUpdateSport';
@@ -36,18 +38,28 @@ const Sport = () => {
     };
     return (
       <section className={styles.wrapper}>
-        <div className={styles['sport-info']}>
+        <div className={styles["sport-info"]}>
           <h2>{selectedSport?.name}</h2>
-          <img
-            src={`${CONSTANTS.API_BASE_URL}${selectedSport?.image}`}
-            alt={selectedSport?.name}
-            className={styles.img}
-          />
+          {selectedSport?.image ? (
+            <img
+              src={`${CONSTANTS.API_BASE_URL}${selectedSport.image}`}
+              alt={selectedSport.name}
+              className={styles.img}
+            />
+          ) : (
+            <div className={styles["icon-placeholder"]}>
+              <Icon
+                path={mdiBasketball}
+                size={5}
+                color="rgba(255, 255, 255, 0.8)"
+              />
+            </div>
+          )}
           <p>
             <b>Olimpic:</b>{" "}
             {selectedSport?.isOlimpic ? "Olimpic" : "Not olimpic"}
           </p>
-          <div className={styles['btn-wrapper']}>
+          <div className={styles["btn-wrapper"]}>
             <button
               onClick={handleList}
               className={styles[classBtnAthleteList]}
@@ -60,7 +72,7 @@ const Sport = () => {
           </div>
           {isShowList && <AthletesList athletes={selectedSport.athletes} />}
         </div>
-        <div className={styles['form-style']}>
+        <div className={styles["form-style"]}>
           {isShowForm && (
             <FormUpdateSport sport={selectedSport} handleForm={handleForm} />
           )}

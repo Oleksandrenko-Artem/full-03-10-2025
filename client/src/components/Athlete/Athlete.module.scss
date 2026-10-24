@@ -8,16 +8,18 @@
     @include flex(row);
     justify-content: space-between;
     padding-top: 100px;
+    height: 110vh;
+    z-index: 2;
     p {
         margin: 5px;
     }
     .sport-info {
         width: 40%;
-        padding: 0 0 0 30px;
+        padding: 0 0 0 50px;
     }
     .form-style {
         @include flex(column);
-        width: 60%;
+        width: 35%;
     }
     @media screen and (max-width: $m) {
         @include flex(column);

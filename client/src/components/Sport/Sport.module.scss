@@ -6,15 +6,16 @@
 
 .wrapper {
     @include flex(row);
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 100px;
+    z-index: 2;
     .sport-info {
         width: 40%;
         padding: 0 0 0 30px;
     }
     .form-style {
+        width: 35%;
         @include flex(column);
-        width: 60%;
     }
     @media screen and (max-width: $m) {
         @include flex(column);
