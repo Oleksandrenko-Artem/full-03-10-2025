@@ -7,12 +7,24 @@
 header {
     @include flex(column);
     @extend %wrapper;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    position: relative; 
+    z-index: 10;            /* Хэдер должен быть выше фона и летающих кружков */
+    background: transparent;
+    margin-bottom: -100px; 
     justify-content: space-between;
     a {
+        cursor: pointer;
         display: inline-block;
+        background-color: $lightBlue;
         padding: $paddingHeader;
+        margin: 20px 20px 0px 0px;
+        transition: all 0.8s ease;
         &:hover {
-            background-color: $lightGray;
+            background-color: $accentBlue;
         }
     }
     @media screen and (min-width: $m) {

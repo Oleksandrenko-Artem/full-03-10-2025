@@ -8,14 +8,15 @@ import styles from './pages.module.scss';
 const AnaliticsPage = () => {
     return (
         <div className={styles.wrapper}>
-            <h1>Analitics</h1>
-            <SportsByCountry />
-            <hr />
-            <AthletesByCountry />
-            <hr />
-            <AvgAgeAthletesBySport />
-            <hr />
-            <AthletesBySport />
+            <h1 className={styles['analitics-label']}>Analitics</h1>
+            <div className={styles['analitics-container']}>
+                <SportsByCountry />
+                <AthletesByCountry />
+            </div>
+            <div className={styles['analitics-container']}>
+                <AthletesBySport />
+                <AvgAgeAthletesBySport />
+            </div>
         </div>
     );
 }

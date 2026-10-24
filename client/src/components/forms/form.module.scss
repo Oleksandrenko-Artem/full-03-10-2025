@@ -1,66 +1,99 @@
-@use '/src/common/styles/colors' as *;
-@use '/src/common/styles/widths' as *;
-@use '/src/common/styles/mixins' as *;
+@use "/src/common/styles/colors" as *;
+@use "/src/common/styles/widths" as *;
+@use "/src/common/styles/mixins" as *;
 
 .form {
+  @include flex(column);
+  width: $formWidth;
+  h1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+  }
+  h2 {
+    display: flex;
+    justify-content: center;
+  }
+  .form-content {
     @include flex(column);
-    width: $formWidth;
+    border-radius: 10%;
+    padding: 20px;
     gap: $formGap;
-    h2{
-        display: flex;
-        justify-content: center;
-    }
     label {
-        font-size: $labelFont;
-        select {
-            display: flex;
-            width: $formWidth;
-            height: $inputHeightSecond;
-            border: $buttonBorderWidth solid $buttonBorderColor;
-            border-radius: $inputBorderRadius;
-        }
-    }
-    label>input[type="text"], label>input[type="number"] {
-        @include flex(column);
-        width: 400px;
-        height: 30px;
+      font-size: $labelFont;
+      select {
+        display: flex;
+        width: 100%;
+        height: 35px;
         border: $buttonBorderWidth solid $buttonBorderColor;
-        border-radius: $inputBorderRadius;
+      }
+      span {
+        font-size: 1.1em;
+        padding-bottom: 5px;
+      }
+    }
+    label > input[type="text"],
+    label > input[type="number"]{
+      @include flex(column);
+      width: 100%;
+      height: 35px;
+      font-size: 1.05em;
+      border: none;
+    }
+    label > input[type="file"] {
+      width: 100%;
+      font-size: 0.85em;
     }
     input[type="file"]::file-selector-button {
-        @include btn($buttonBackground, $colorButtonText,$buttonFont, $inputBorderRadius, $inputHeightSecond);
-        border: $buttonBorderWidth solid $buttonBorderColor;
+      cursor: pointer;
+      width: 100%;
+      background-color: $lightBlue;
+      padding: $paddingHeader;
+      margin: 20px 20px 0px 0px;
+      transition: all 0.8s ease;
+      font-weight: 500;
+      font-size: 1.05em;
+      border: none;
     }
     input[type="file"]::file-selector-button:hover {
-        background: $buttonBackgroundHover;
+      background-color: $accentBlue;
     }
-    label>input[type="file"], label>input[type="checkbox"] {
-        cursor: pointer;
+    label > input[type="file"],
+    label > input[type="checkbox"] {
+      cursor: pointer;
     }
-    label>input[type="file"] {
-        @include flex(column);
+    label > input[type="file"] {
+      @include flex(column);
     }
-    label>input[type="checkbox"] {
-        height: $checkboxWidth;
-        width: $checkboxWidth;
+    label > input[type="checkbox"] {
+      height: $checkboxWidth;
+      width: $checkboxWidth;
     }
     button {
-        @include btn($buttonBackground, $colorButtonText,$buttonFont, $inputBorderRadius, $inputHeightSecond);
-        border: $buttonBorderWidth solid $buttonBorderColor;
+      cursor: pointer;
+      width: 100%;
+      background-color: $lightBlue;
+        padding: $paddingHeader;
+        transition: all 0.8s ease;
+        font-weight: 500;
+        font-size: 1.05em;
+        border: none;
         &:hover {
-            background: $buttonBackgroundHover;
+            background-color: $accentBlue;
         }
     }
     .error {
-        color: $errorColor;
-        text-transform: capitalize;
-        font-size: $buttonFont;
+      color: $errorColor;
+      text-transform: capitalize;
+      font-size: $buttonFont;
+      margin: 0;
     }
     .olimpic {
-        @include flex(row);
-        align-items: center;
+      @include flex(row);
+      align-items: center;
     }
+  }
 }
-.margin-auto{
-    margin: auto;
+.margin-auto {
+  margin: auto;
 }

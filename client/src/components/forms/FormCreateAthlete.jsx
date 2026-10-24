@@ -11,7 +11,7 @@ import styles from './form.module.scss'
 const FormCreateAthlete = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { sports } = useSelector((state) => state.sports);
+    const { sports, error } = useSelector((state) => state.sports);
     useEffect(() => {
         dispatch(fetchAllSportsAsync());
     }, [dispatch]);
@@ -27,7 +27,9 @@ const FormCreateAthlete = () => {
         <Formik initialValues={{name: '', country: '', birthYear: 2000, sportId: '', avatar: ''}} validationSchema={createValidationSchema} onSubmit={onSubmit}>
             {({setFieldValue}) => {
                 return <Form className={classForm}>
-                    <h2>Create new athlete</h2>
+                    <h1>Create new athlete</h1>
+                    <div className={styles['form-content']}>
+                        <p className={styles.error}>{error && 'An athlete with this name already exists'}</p>
                     <label>
                         <span>Name of athlete</span>
                         <Field name="name" type="text" />
@@ -65,7 +67,8 @@ const FormCreateAthlete = () => {
                         }} />
                         <ErrorMessage name="avatar" component='div' className={styles.error} />
                     </label>
-                    <button type='submit'>Create new athlete</button>
+                        <button type='submit'>Create new athlete</button>
+                        </div>
                 </Form>
             }}
         </Formik>

@@ -4,7 +4,7 @@ import styles from './pages.module.scss';
 
 const CreateAthletePage = () => {
     return (
-        <div className={styles.wrapper}>
+        <div className={styles['wrapper']}>
             <FormCreateAthlete />
         </div>
     );

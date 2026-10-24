@@ -31,6 +31,7 @@ const FormUpdateAthlete = ({ athlete, handleForm }) => {
             {({setFieldValue, values}) => {
                 return <Form className={styles.form}>
                     <h2>Update athlete</h2>
+                    <div className={styles['form-content']}>
                     <label>
                         <span>Name of athlete</span>
                         <Field name="name" type="text" />
@@ -68,7 +69,8 @@ const FormUpdateAthlete = ({ athlete, handleForm }) => {
                         }} />
                         <ErrorMessage name="avatar" component='div' className={styles.error} />
                     </label>
-                    <button type='submit'>Update athlete</button>
+                        <button type='submit'>Update athlete</button>
+                        </div>
                 </Form>
             }}
         </Formik>

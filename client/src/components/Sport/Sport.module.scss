@@ -7,8 +7,14 @@
 .wrapper {
     @include flex(row);
     justify-content: space-between;
-    div {
+    padding-top: 100px;
+    .sport-info {
+        width: 40%;
         padding: 0 0 0 30px;
+    }
+    .form-style {
+        @include flex(column);
+        width: 60%;
     }
     @media screen and (max-width: $m) {
         @include flex(column);
@@ -17,17 +23,25 @@
 .img {
     @extend %img-width;
 }
-.btn-show {
-    @include btn($buttonBackground, $colorButtonText, $buttonFont, $inputBorderRadius, $inputHeightSecond);
-    @extend %btn-style;
-    &:hover {
-        background: $buttonBackgroundHover;
+.btn-wrapper {
+    @include flex(row);
+    gap: 10px;
+    @media screen and (max-width: $m) {
+        @include flex(column);
+    }
+    .btn-show, .btn-hide {
+        cursor: pointer;
+      background-color: $lightBlue;
+        padding: $paddingHeader;
+        transition: all 0.8s ease;
+        font-weight: 500;
+        font-size: 1.05em;
+        border: none;
+        &:hover {
+            background-color: $accentBlue;
+        }
+        @media screen and (max-width: $m) {
+        width: 50%;
     }
 }
-.btn-hide {
-    @include btn($buttonBackgroundSecond, $colorButtonText, $buttonFont, $inputBorderRadius, $inputHeightSecond);
-    @extend %btn-style;
-    &:hover {
-        background: $buttonBackgroundHoverSecond;
-    }
 }

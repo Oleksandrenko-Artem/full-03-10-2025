@@ -35,19 +35,37 @@ const Sport = () => {
         return <p>Sport isn't available</p>
     };
     return (
-        <section className={styles.wrapper}>
-            <div>
-                <h2>{selectedSport?.name}</h2>
-                <img src={`${CONSTANTS.API_BASE_URL}${selectedSport?.image}`} alt={selectedSport?.name} className={styles.img} />
-                <p><b>Olimpic:</b> {selectedSport?.isOlimpic ? 'Olimpic' : 'Not olimpic'}</p>
-                <button onClick={handleList} className={styles[classBtnAthleteList]}>{isShowList ? 'Hide' : 'Show'} list of athletes</button>
-                <button onClick={handleForm} className={styles[classBtnFormUpdate]}>{isShowForm ? 'Hide' : 'Show'} form update sport</button>
-                {isShowList && <AthletesList athletes={selectedSport.athletes} />}
-            </div>
-            <div>
-                {isShowForm && <FormUpdateSport sport={selectedSport} handleForm={handleForm} />}
-            </div>
-        </section>
+      <section className={styles.wrapper}>
+        <div className={styles['sport-info']}>
+          <h2>{selectedSport?.name}</h2>
+          <img
+            src={`${CONSTANTS.API_BASE_URL}${selectedSport?.image}`}
+            alt={selectedSport?.name}
+            className={styles.img}
+          />
+          <p>
+            <b>Olimpic:</b>{" "}
+            {selectedSport?.isOlimpic ? "Olimpic" : "Not olimpic"}
+          </p>
+          <div className={styles['btn-wrapper']}>
+            <button
+              onClick={handleList}
+              className={styles[classBtnAthleteList]}
+            >
+              {isShowList ? "Hide" : "Show"} list of athletes
+            </button>
+            <button onClick={handleForm} className={styles[classBtnFormUpdate]}>
+              {isShowForm ? "Hide" : "Show"} form update sport
+            </button>
+          </div>
+          {isShowList && <AthletesList athletes={selectedSport.athletes} />}
+        </div>
+        <div className={styles['form-style']}>
+          {isShowForm && (
+            <FormUpdateSport sport={selectedSport} handleForm={handleForm} />
+          )}
+        </div>
+      </section>
     );
 };
 

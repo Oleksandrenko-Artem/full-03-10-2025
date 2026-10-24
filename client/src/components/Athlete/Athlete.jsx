@@ -28,7 +28,7 @@ const Athlete = () => {
     };
     return (
         <article className={styles.wrapper}>
-            <div>
+            <div className={styles['sport-info']}>
                 <h2>{selectedAthlete?.name}</h2>
                 <img src={`${CONSTANTS.API_BASE_URL}${selectedAthlete?.avatar}`} alt={`${selectedAthlete?.name}`} className={styles.img} />
                 <p><b>Country: </b>{selectedAthlete?.country}</p>
@@ -36,7 +36,7 @@ const Athlete = () => {
                 <p><b>Sport: </b><Link to={`/sports/${selectedAthlete?.sportId._id}`}>{selectedAthlete?.sportId.name}</Link></p>
                 <button onClick={handleForm} className={styles.btn}>{isShowForm ? 'Hide' : 'Show'} form update athlete</button>
             </div>
-            <div>
+            <div className={styles['form-style']}>
                 {isShowForm && <FormUpdateAthlete athlete={selectedAthlete} handleForm={handleForm} />}
             </div>
         </article>

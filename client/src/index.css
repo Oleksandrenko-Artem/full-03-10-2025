@@ -17,9 +17,13 @@ a {
 }
 body {
   margin: 0;
+  padding: 0;
 }
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+footer {
+    flex: 0 0 auto; /* Футер не будет сжиматься и всегда останется внизу */
 }

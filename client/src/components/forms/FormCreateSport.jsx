@@ -17,8 +17,9 @@ const FormCreateSport = () => {
         <Formik initialValues={{ name: '', isOlimpic: false, image: '' }} onSubmit={onSubmit} validationSchema={createValidationSchema}>
             {({ setFieldValue }) => (
                 <Form className={classForm}>
-                    <h2>Create new sport</h2>
-                    <p className={styles.error}>{error && 'Sport with this name already exists'}</p>
+                    <h1>Create new sport</h1>
+                    <div className={styles['form-content']}>
+                        <p className={styles.error}>{error && 'Sport with this name already exists'}</p>
                     <label>
                         <span>Name of sport</span>
                         <Field name="name" type="text" />
@@ -37,6 +38,7 @@ const FormCreateSport = () => {
                         <ErrorMessage name="image" component='div' className={styles.error} />
                     </label>
                     <button type='submit'>Create new sport</button>
+                    </div>
                 </Form>
             )}
         </Formik>

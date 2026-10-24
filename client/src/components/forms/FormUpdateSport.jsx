@@ -35,12 +35,13 @@ const FormUpdateSport = ({sport, handleForm}) => {
                     };
                     return <Form className={styles.form}>
                         <h2>Update sport</h2>
+                        <div className={styles['form-content']}>
                         <label>
                             <span>Name of sport</span>
                             <Field name="name" type="text"/>
                             <ErrorMessage name="name" component='div' className={styles.error}/>
                         </label>
-                        <label>
+                        <label className={styles.olimpic}>
                             <span>Choose olimpic</span>
                             <Field name="isOlimpic" type="checkbox"/>
                             <ErrorMessage name="isOlimpic" component='div' className={styles.error}/>
@@ -50,7 +51,8 @@ const FormUpdateSport = ({sport, handleForm}) => {
                             <input name="image" type="file" onChange={handleImage}/>
                             <ErrorMessage name="image" component='div' className={styles.error}/>
                         </label>
-                        <button type="submit">Update sport</button>
+                            <button type="submit">Update sport</button>
+                            </div>
                     </Form>
                 }
             }

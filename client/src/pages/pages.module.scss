@@ -1,8 +1,44 @@
 @use '/src/common/styles/templates' as *;
 
-h1 {
-    text-align: center
-}
 .wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 90vh; 
+    
+    display: flex;
+    flex-direction: column;
+    
+    background: linear-gradient(-35deg, rgb(62, 190, 137) 25%, rgb(74, 140, 202) 75%, rgba(83, 237, 206, 1) 100%);
+    background-size: 300%;
+    animation: gradient 30s linear infinite;
+}
+
+.content {
     @extend %wrapper;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.analitics-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+.analitics-label {
+    margin-top: 100px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
