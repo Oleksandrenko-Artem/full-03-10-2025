@@ -3,7 +3,7 @@
 .wrapper {
     position: relative;
     width: 100%;
-    min-height: 90vh; 
+    min-height: 90vh;
     
     display: flex;
     flex-direction: column;
@@ -11,6 +11,12 @@
     background: linear-gradient(-35deg, rgb(36, 191, 202) 25%, rgb(69, 43, 212) 75%, rgb(104, 78, 250) 100%);
     background-size: 300%;
     animation: gradient 30s linear infinite;
+    .title {
+        @extend %flex-center;
+        flex-direction: column;
+        margin-top: 200px;
+        z-index: 2;
+    }
 }
 
 .content {
@@ -31,6 +37,7 @@
 }
 .analitics-label {
     margin-top: 100px;
+    z-index: 2;
 }
 h1 {
     text-align: center;

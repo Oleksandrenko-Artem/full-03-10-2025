@@ -1,10 +1,14 @@
 @use '/src/common/styles/colors' as *;
+@use '/src/common/styles/templates' as *;
 
 .analitic {
+    @extend %flex-center;
+    flex-direction: column;
     text-align: center;
     background-color: $lightBlue;
     width: 100%;
     z-index: 2;
+    min-height: 350px;
     div{
         padding: 0 0 10px 0;
     }

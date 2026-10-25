@@ -6,13 +6,16 @@
 * {
   box-sizing: border-box;
 }
+h1, h2, p, li {
+  color: white;
+}
 img {
   width: 100%;
   object-fit: cover;
 }
 a {
   font-weight: 500;
-  color: inherit;
+  color: white;
   text-decoration: inherit;
 }
 body {

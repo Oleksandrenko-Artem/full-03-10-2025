@@ -21,7 +21,7 @@ const AthletesByCountry = () => {
             {athletesByCountry.length === 0 ? (
                 <p>Empty data</p>
             ) : (
-                <ResponsiveContainer width="100%" height={300}>
+                <ResponsiveContainer width="100%" height={200}>
                     <PieChart width={300} height={300}>
                         <Pie data={athletesByCountry} dataKey="amount" nameKey="country" label legendType='circle'>
                             {athletesByCountry.map(showColorCell)}
