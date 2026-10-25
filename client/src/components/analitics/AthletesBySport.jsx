@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { fetchAthletesBySportAsync } from '../../store/analiticsSlice';
+import Spinner from "../Spinner/Spinner";
 import styles from './analitic.module.scss';
 
 const AthletesBySport = () => {
@@ -20,7 +21,7 @@ const AthletesBySport = () => {
     return (
         <section className={styles.analitic}>
             <h2>Amount athletes in each sport</h2>
-            {isLoading && <p>Loading...</p>}
+            {isLoading && <Spinner />}
             {error && <p>{error}</p>}
             {athletesBySport.length === 0 ? (
                 <p>Empty data</p>

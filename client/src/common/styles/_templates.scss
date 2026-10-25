@@ -11,6 +11,11 @@
         transition: all 0.3s ease;
     }
 }
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 %flex-between {
     display: flex;
     justify-content: space-between;

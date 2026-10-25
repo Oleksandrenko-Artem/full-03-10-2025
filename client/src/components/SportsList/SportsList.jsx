@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllSportsAsync } from '../../store/sportsSlice';
 import SportItem from './SportItem';
+import Spinner from "../Spinner/Spinner";
 
 const SportsList = () => {
     const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const SportsList = () => {
     }, [dispatch]);
     const showSport = (sport) => <SportItem key={sport._id} sport={sport} />
     if (isLoading) {
-        return <p>Loading...</p>;
+        return <Spinner />;
     }
     if (error) {
         return <p>{error}</p>;

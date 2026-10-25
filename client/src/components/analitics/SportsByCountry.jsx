@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PieChart, Pie, ResponsiveContainer, Tooltip, Legend, Cell } from "recharts";
 import { fetchSportsByCountryAsync } from '../../store/analiticsSlice';
 import CONSTANTS from '../../constants';
+import Spinner from "../Spinner/Spinner";
 import styles from './analitic.module.scss';
 
 const SportsByCountry = () => {
@@ -15,7 +16,7 @@ const SportsByCountry = () => {
     return (
         <section className={styles.analitic}>
             <h2>Amount sports in each country</h2>
-            {isLoading && <p>Loading...</p>}
+            {isLoading && <Spinner />}
             {error && <p>{error}</p>}
             {sportsByCountry.length === 0 ? (
                 <p>Empty data</p>

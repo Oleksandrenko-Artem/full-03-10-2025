@@ -7,6 +7,7 @@ import { fetchSportByIdAsync } from '../../store/sportsSlice';
 import CONSTANTS from '../../constants';
 import FormUpdateSport from '../forms/FormUpdateSport';
 import AthletesList from '../AthletesList/AthletesList';
+import Spinner from '../Spinner/Spinner';
 import styles from './Sport.module.scss';
 
 const Sport = () => {
@@ -28,13 +29,13 @@ const Sport = () => {
     const classBtnFormUpdate = isShowForm ? 'btn-hide' : 'btn-show'
     const classBtnAthleteList = isShowList ? 'btn-show' : 'btn-hide'
     if (isLoading) {
-        return <p>Loading...</p>
+      return <Spinner />;
     };
     if (error) {
-        return <p>{error}</p>
+      return <p>{error}</p>;
     };
     if (!selectedSport) {
-        return <p>Sport isn't available</p>
+      return <p>Sport isn't available</p>;
     };
     return (
       <section className={styles.wrapper}>

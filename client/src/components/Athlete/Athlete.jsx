@@ -4,7 +4,8 @@ import { Link, useParams } from 'react-router-dom';
 import { Icon } from "@mdi/react";
 import { mdiAccount } from '@mdi/js';
 import { fetchAthleteByIdAsync } from '../../store/athletesSlice';
-import FormUpdateAthlete from '../forms/FormUpdateAthlete';
+import FormUpdateAthlete from "../forms/FormUpdateAthlete";
+import Spinner from "../Spinner/Spinner";
 import CONSTANTS from '../../constants';
 import styles from './Athlete.module.scss';
 
@@ -20,13 +21,13 @@ const Athlete = () => {
         setIsShowForm(!isShowForm);
     };
     if (isLoading) {
-        return <p>Loading...</p>
+      return <Spinner />;
     };
     if (error) {
-        return <p>{error}</p>
+      return <p>{error}</p>;
     };
     if (!selectedAthlete) {
-        return <p>Athlete is'nt available</p>
+      return <p>Athlete is'nt available</p>;
     };
     return (
       <article className={styles.wrapper}>

@@ -11,6 +11,7 @@ import {
 } from "recharts";
 import { fetchAvgAgeAthletesBySportAsync } from '../../store/analiticsSlice';
 import CONSTANTS from '../../constants';
+import Spinner from "../Spinner/Spinner";
 import styles from './analitic.module.scss';
 
 const AvgAgeAthletesBySport = () => {
@@ -23,7 +24,7 @@ const AvgAgeAthletesBySport = () => {
     return (
         <section className={styles.analitic}>
             <h2>Average age athletes by sport</h2>
-            {isLoading && <p>Loading...</p>}
+            {isLoading && <Spinner />}
             {error && <p>{error}</p>}
             {avgAgeAthletesBySport.length === 0 ? (
                 <p>Empty data</p>
