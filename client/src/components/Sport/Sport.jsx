@@ -71,9 +71,9 @@ const Sport = () => {
               {isShowForm ? "Hide" : "Show"} form update sport
             </button>
           </div>
-          {isShowList && <AthletesList athletes={selectedSport.athletes} />}
         </div>
-        <div className={styles["form-style"]}>
+        <div className={styles["side-panel"]}>
+          {isShowList && <AthletesList athletes={selectedSport.athletes} />}
           {isShowForm && (
             <FormUpdateSport sport={selectedSport} handleForm={handleForm} />
           )}

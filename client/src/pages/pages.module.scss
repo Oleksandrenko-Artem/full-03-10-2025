@@ -30,10 +30,15 @@
 .analitics-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     padding: 20px;
     gap: 20px;
+}
+.analitics-container > * {
+    flex: 1 1 320px;
+    min-width: 0;
 }
 .analitics-label {
     margin-top: 100px;

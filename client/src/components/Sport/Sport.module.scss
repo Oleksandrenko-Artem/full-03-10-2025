@@ -11,14 +11,23 @@
     z-index: 2;
     .sport-info {
         width: 40%;
+        min-width: 0;
         padding: 0 0 0 30px;
     }
-    .form-style {
-        width: 35%;
+    .side-panel {
+        width: 45%;
+        min-width: 0;
         @include flex(column);
+        gap: 20px;
     }
     @media screen and (max-width: $m) {
         @include flex(column);
+
+        .sport-info,
+        .side-panel {
+            width: 100%;
+            padding: 0 20px;
+        }
     }
 }
 .img {
